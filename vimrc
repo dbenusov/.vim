@@ -23,4 +23,12 @@ set number
 " Command Mappings
 " Used to switch into Terminal-Normal mode
 tnoremap `` :<C-w>N
-
+" Go to EOL
+nnoremap 00 $
+" Go to first nonwhitespace character
+nnoremap 99 ^
+" Go between windows easier
+nnoremap <C-J> <C-W>h
+nnoremap <C-K> <C-W>j
+nnoremap <C-I> <C-W>k
+nnoremap <C-L> <C-W>l

@@ -1,1 +1,1 @@
-grep -r --include \*.cc --include \*.h $1
+grep -r --include \*.cc --include \*.h --include \*.py --include \*.fbs $1
