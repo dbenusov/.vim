@@ -1,9 +1,9 @@
 
 " Invokes clang-format on the current file
 function FormatBuffer()
-  if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+  if &modified
     let cursor_pos = getpos('.')
-    :%!clang-format
+    :%!bash -c "clang-format '%:p' && exit"
     call setpos('.', cursor_pos)
   endif
 endfunction
