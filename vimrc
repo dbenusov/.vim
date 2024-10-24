@@ -1,11 +1,9 @@
 
 " Invokes clang-format on the current file
 function FormatBuffer()
-  if &modified
-    let cursor_pos = getpos('.')
-    :%!bash -c "clang-format '%:p' && exit"
-    call setpos('.', cursor_pos)
-  endif
+  let cursor_pos = getpos('.')
+  :%!clang-format -assume-filename='%:p'
+  call setpos('.', cursor_pos)
 endfunction
 
 autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp,*.vert,*.frag :call FormatBuffer()
@@ -32,3 +30,6 @@ nnoremap <C-J> <C-W>h
 nnoremap <C-K> <C-W>j
 nnoremap <C-I> <C-W>k
 nnoremap <C-L> <C-W>l
+
+" Custom commands
+command Format :call FormatBuffer()
